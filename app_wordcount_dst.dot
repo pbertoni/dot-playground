@@ -1,0 +1,31 @@
+digraph WC_dst
+{
+	//compound=true;			??????
+	threadpool1 [shape=polygon,sides=4,skew=.4,label="src_thread"];
+	node [shape=record]
+	
+	subgraph cluster1
+	{
+		block1 [label="{id|importer}|{type|SerSource}"];
+		foo1 [label="{invocation|async}"];
+		gate1 [label="{gate|source_out}"];
+	}
+
+	subgraph cluster2
+	{
+		block2 [label="{id|bhole}|{type|WordCounter}"];
+		gate2 [label="{gate|in_word}"];
+		
+		//subgraph cluster_collect
+		//{
+			block_collect [label="collect|{host|port|msgtype}|{127.0.0.1|12345|WordRecord}"];
+			//block_collect2 [label="{collect|{host|127.0.0.1}|{port|12345}|{msgtype|WordRecord}}"];
+			//block_collect3 [label="{collect3|{host|port|msgtype}|{127.0.0.1|12345|WordRecord}}"];
+		//}
+	}
+
+	gate1 -> gate2;
+	//block1 -> block2 [ltail=cluster1,lhead=cluster2];
+	threadpool1 -> block1 [lhead=cluster1];
+
+}

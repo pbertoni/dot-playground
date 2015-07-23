@@ -1,0 +1,33 @@
+graph G {
+	node [label="\N"];
+	graph [bb="0,0,331.52,218.21"];
+	Block [pos="150.05,106.61", width="1.0278", height="0.5"];
+	ACDCalculator [pos="224.33,98.194", width="2.25", height="0.5"];
+	BFMembershipChecker [pos="121,19", width="3.3333", height="0.5"];
+	BlackHole [pos="104.41,183.55", width="1.6111", height="0.5"];
+	BooleanCombiner [pos="175.9,174.14", width="2.6667", height="0.5"];
+	CDRSource [pos="80.912,152.47", width="1.8333", height="0.5"];
+	Collector [pos="66.882,78.269", width="1.4722", height="0.5"];
+	Dispatcher [pos="229.64,59.676", width="1.75", height="0.5"];
+	FoFiRCalculator [pos="90.398,47.138", width="2.3611", height="0.5"];
+	MsgCloner [pos="197.53,28.488", width="1.7222", height="0.5"];
+	ScoreCombiner [pos="158.83,29.242", width="2.3333", height="0.5"];
+	Selector [pos="61.849,118.7", width="1.3889", height="0.5"];
+	TBloomFilter [pos="239.25,133.65", width=2, height="0.5"];
+	ThresholdComparator [pos="214.52,174.41", width="3.2222", height="0.5"];
+	URLCalculator [pos="145.65,199.21", width="2.2222", height="0.5"];
+	Block -- ACDCalculator [pos="186.32,102.5 186.46,102.48 186.61,102.47 186.76,102.45"];
+	Block -- BFMembershipChecker [pos="144.03,88.456 139.04,73.42 131.99,52.159 127.01,37.129"];
+	Block -- BlackHole [pos="139.69,124.07 132.33,136.48 122.47,153.11 115.04,165.62"];
+	Block -- BooleanCombiner [pos="156.84,124.35 160.55,134.05 165.14,146.03 168.88,155.81"];
+	Block -- CDRSource [pos="127.79,121.37 121,125.88 113.48,130.86 106.49,135.5"];
+	Block -- Collector [pos="119.55,96.217 114.64,94.542 109.5,92.792 104.44,91.069"];
+	Block -- Dispatcher [pos="173.93,92.527 182.81,87.289 192.96,81.304 202.14,75.89"];
+	Block -- FoFiRCalculator [pos="133.75,90.358 125.88,82.517 116.43,73.089 108.35,65.042"];
+	Block -- MsgCloner [pos="160.58,89.271 168.34,76.505 178.86,59.2 186.69,46.319"];
+	Block -- ScoreCombiner [pos="152.13,88.274 153.53,75.941 155.37,59.751 156.76,47.445"];
+	Block -- Selector [pos="114.43,111.49 112.51,111.76 110.58,112.02 108.64,112.29"];
+	Block -- TBloomFilter [pos="181.5,116.14 185.31,117.3 189.26,118.5 193.23,119.7"];
+	Block -- ThresholdComparator [pos="165.65,123.02 175.19,133.06 187.41,145.9 197.24,156.24"];
+	Block -- URLCalculator [pos="149.18,124.9 148.4,141.14 147.28,164.73 146.51,180.95"];
+}

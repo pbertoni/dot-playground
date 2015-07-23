@@ -1,0 +1,17 @@
+graph G {
+	Block -- ACDCalculator;
+	Block -- BFMembershipChecker;
+	Block -- BlackHole;
+	Block -- BooleanCombiner;
+	Block -- CDRSource;
+	Block -- Collector;
+	Block -- Dispatcher;
+	Block -- FoFiRCalculator;
+	Block -- MsgCloner;
+	Block -- ScoreCombiner;
+	Block -- Selector;
+	Block -- TBloomFilter;
+	Block -- ThresholdComparator;
+	Block -- URLCalculator;
+}
+

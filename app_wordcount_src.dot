@@ -1,0 +1,116 @@
+digraph WC_src
+{
+	rankdir = "LR"
+	compound = "true"
+	threadpool [shape=polygon,sides=4,skew=.4,label="src_thread"]
+	node [shape=record, label="type|SerExporter"];
+
+	edge[style = invis, fontsize=12];
+    { rank=same;
+        0  [style = invis];
+        01 [style = invis];
+        02 [style = invis];
+        0 -> 01 -> 02;
+    }
+
+	subgraph cluster_src
+	{
+		src_blck [label="type|WordSource"]
+		async [label="invocation|async"]
+		gateX [label="gate|out_word_X"]
+		blck_src [label="source|{type|name}|{offline|words_new.txt}"]
+		src_blck -> async -> gateX -> blck_src
+		label = "src"
+	}
+
+	threadpool -> src_blck [style="solid", lhead="cluster_src"]
+
+	subgraph cluster_exp0
+	{
+		exp0_blck
+		exp0_gate [label="gate|in_msg"]
+		exp0_attr [label="export|{host|port}|{192.168.0.13|12345}"]
+		exp0_blck -> exp0_gate -> exp0_attr
+		label = "exporter0"
+	}
+
+	subgraph cluster_exp1
+	{
+		exp1_blck
+		exp1_gate [label="gate|in_msg"]
+		exp1_attr [label="export|{host|port}|{192.168.0.53|12345}"];
+		exp1_blck -> exp1_gate -> exp1_attr
+		label = "exporter1"
+	}
+
+	subgraph cluster_exp2
+	{
+		exp2_blck
+		exp2_gate [label="gate|in_msg"]
+		exp2_attr [label="export|{host|port}|{192.168.0.6|12345}"];
+		exp2_blck -> exp2_gate -> exp2_attr
+		label = "exporter2"
+	}
+
+	subgraph cluster_exp3
+	{
+		exp3_blck
+		exp3_gate [label="gate|in_msg"]
+		exp3_attr [label="export|{host|port}|{192.168.0.9|12345}"]
+		exp3_blck -> exp3_gate -> exp3_attr
+		label = "exporter3"
+	}
+
+	subgraph cluster_exp4
+	{
+		exp4_blck
+		exp4_gate [label="gate|in_msg"]
+		exp4_attr [label="export|{host|port}|{192.168.0.31|12345}"]
+		exp4_blck -> exp4_gate -> exp4_attr
+		label = "exporter4"
+	}
+
+	subgraph cluster_exp5
+	{
+		exp5_blck
+		exp5_gate [label="gate|in_msg"]
+		exp5_attr [label="export|{host|port}|{192.168.0.2|12345}"]
+		exp5_blck -> exp5_gate -> exp5_attr
+		label = "exporter5"
+	}
+
+	subgraph cluster_exp6
+	{
+		exp6_blck
+		exp6_gate [label="gate|in_msg"]
+		exp6_attr [label="export|{host|port}|{192.168.0.4|12345}"]
+		exp6_blck -> exp6_gate -> exp6_attr
+		label = "exporter6"
+	}
+
+	subgraph cluster_exp7
+	{
+		exp7_blck
+		exp7_gate [label="gate|in_msg"]
+		exp7_attr [label="export|{host|port}|{192.168.0.8|12345}"]
+		exp7_blck -> exp7_gate -> exp7_attr
+		label = "exporter7"
+	}
+
+	/*0  -> "exp0_blck"[style=invis];
+    01 -> "exp1_blck"[style=invis];
+    01 -> "exp2_blck"[style=invis];*/
+
+    // edges between clusters
+	edge[constraint=false, style=solid];
+
+	gateX -> exp0_gate
+	gateX -> exp1_gate
+	gateX -> exp2_gate
+	gateX -> exp3_gate
+	gateX -> exp4_gate
+	gateX -> exp5_gate
+	gateX -> exp6_gate
+	gateX -> exp7_gate
+	//block1 -> block2 [ltail=cluster1,lhead=cluster2];
+}
